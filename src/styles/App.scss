@@ -1,0 +1,118 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$header-bg-color: #f5f5f5;
+$row-bg-color: #fff;
+$row-alt-bg-color: #f9f9f9;
+$border-color: #ddd;
+$padding: 12px;
+$border-radius: 4px;
+$container-width: 80%;
+$container-max-width: 800px;
+
+
+// Mixins
+@mixin transition($property, $duration) {
+  transition: $property $duration ease-in-out;
+}
+
+// Centering Container
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .box {
+    width: $container-width;
+    max-width: $container-max-width;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.libraryLogo {
+  height: 150px;
+  cursor: pointer;
+  padding-left: 550px;
+  padding-top: 15px;
+}
+
+
+
+// Table Styles
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+
+  th, td {
+    padding: $padding;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    background-color: $header-bg-color;
+    color: $text-color;
+    font-weight: bold;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: $row-alt-bg-color;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+      color: #fff;
+    }
+  }
+
+  td {
+    &:first-child {
+      border-left: 1px solid $border-color;
+    }
+    &:last-child {
+      border-right: 1px solid $border-color;
+    }
+    border-left: none;
+    border-right: none;
+  }
+}
+
+// Table with striped rows
+.table-striped {
+  tr {
+    &:nth-child(even) {
+      background-color: $row-alt-bg-color;
+    }
+    &:nth-child(odd) {
+      background-color: $row-bg-color;
+    }
+  }
+}
+
+// Responsive Table
+@media (max-width: 768px) {
+  .table, .table-striped {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+
+    th, td {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+
+
